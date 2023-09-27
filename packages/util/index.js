@@ -78,6 +78,7 @@ export const getInternal = async (variables, request) => {
     .filter((res) => res.status === 'rejected')
     .map((res) => res.reason)
   if (errors.length) {
+    console.log('p0ooo: ', Object.stringify(values));
     throw new Error('Failed to resolve internal values', { cause: errors })
   }
   return keys.reduce(
